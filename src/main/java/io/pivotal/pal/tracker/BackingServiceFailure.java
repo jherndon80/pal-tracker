@@ -13,16 +13,19 @@ public class BackingServiceFailure {
 
     @WriteOperation
     public void set() {
+        System.out.println("Set failure to true");
         simulateFailure = true;
     }
 
     @DeleteOperation
     public void unset() {
+        System.out.println("Set failure to false");
         simulateFailure = false;
     }
 
     @ReadOperation
     public boolean isSimulateFailure() {
+        System.out.println("Failure is " + simulateFailure);
         return simulateFailure;
     }
 }

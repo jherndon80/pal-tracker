@@ -17,11 +17,13 @@ public class BackingService {
     }
 
     public boolean ping() {
+        logger.info("ping");
         if (!warmed) {
             // Simulate backing service lazy initialization
             initialize();
             warmed = true;
         }
+        logger.info("Failure is " + failure.isSimulateFailure());
         return !failure.isSimulateFailure();
     }
 

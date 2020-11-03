@@ -7,7 +7,7 @@
  */
 
 plugins {
-    // Apply the java plugin to add support for Java
+    // Apply the java plugin to add support for Javaf
     id 'java'
 
     // Apply the application plugin to add support for building a CLI application.
@@ -30,6 +30,7 @@ dependencies {
     //implementation 'com.google.guava:guava:29.0-jre'
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.13'
@@ -48,10 +49,21 @@ application {
     mainClassName = 'io.pivotal.pal.tracker.PalTrackerApplication'
 }
 
+springBoot {
+    buildInfo()
+}
+
 bootRun.environment([
         "WELCOME_MESSAGE": "hello",
+        "MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE": "*",
+        "MANAGEMENT_ENDPOINT_HEALTH_SHOWDETAILS": "always",
+        "MANAGEMENT_HEALTH_PROBES_ENABLED": true,
+        "MANAGEMENT_ENDPOINT_HEALTH_GROUP_READINESS_INCLUDE": "backingService",
 ])
 
 test.environment([
         "WELCOME_MESSAGE": "Hello from test",
+        "MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE": "*",
+        "MANAGEMENT_ENDPOINT_HEALTH_SHOWDETAILS": "always",
+        "MANAGEMENT_HEALTH_PROBES_ENABLED": true
 ])
