@@ -3,3 +3,4 @@ build
 .idea
 *.iml
 ci/var*.yaml
+/ci/variables-pal-tracker.yml
