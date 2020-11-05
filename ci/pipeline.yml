@@ -73,8 +73,6 @@ jobs:
             mkdir -p ~/.kube
             echo '((KUBECONFIG))' > ~/.kube/config
 
-            ls -al ~/.kube/
-            cat ~/.kube/config
 
             BUILD_NUMBER=`cat version/number`
 
