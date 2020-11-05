@@ -73,24 +73,29 @@ jobs:
             mkdir -p ~/.kube
             echo '((KUBECONFIG))' > ~/.kube/config
 
+            ls -al ~/.kube/
+            cat ~/.kube/config
+
             BUILD_NUMBER=`cat version/number`
 
             cd source-code
-            grep "concourse.run_number" k8s/environments/review/deployment.yaml
-            sed -i "s/concourse.run_number/${BUILD_NUMBER}/g" k8s/environments/review/deployment.yaml
+            grep "concourse.run_number" k8s/environments/review/deployment.yml
+            sed -i "s/concourse.run_number/${BUILD_NUMBER}/g" k8s/environments/review/deployment.yml
             kubectl apply -k k8s/environments/review
 resources:
 - name: source-code
   type: git
   source:
-    uri: https://github.com/((GITHUB_USERNAME))/pal-tracker-k8s.git
-    branch: master
+    uri: https://github.com/((GITHUB_USERNAME))/pal-tracker.git
+    branch: main
+    username: ((GITHUB_USERNAME))
+    password: ((GITHUB_PASSWORD))
 - name: version
   type: semver
   source:
     initial_version: "0.0.1"
     driver: git
-    uri: https://github.com/((GITHUB_USERNAME))/pal-tracker-k8s.git
+    uri: https://github.com/((GITHUB_USERNAME))/pal-tracker.git
     branch: build
     file: number
     username: ((GITHUB_USERNAME))
