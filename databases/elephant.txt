@@ -1,0 +1,19 @@
+Development:
+pal-tracker-development
+
+postgres://dcwobcre:nniPcTpOaUGqhkKfb-ZvS2d_TzXscAEm@lallah.db.elephantsql.com:5432/dcwobcre
+
+flyway -url="jdbc:postgresql://lallah.db.elephantsql.com:5432/dcwobcre" -locations=filesystem:databases/tracker migrate -user=dcwobcre -password=nniPcTpOaUGqhkKfb-ZvS2d_TzXscAEm
+
+psql -h lallah.db.elephantsql.com -U dcwobcre
+
+
+
+Review:
+pal-tracker-review
+
+postgres://hufnadpz:KYsmG7Sa79v--JhmQGuQICXCcmvaghpY@lallah.db.elephantsql.com:5432/hufnadpz
+
+flyway -url="jdbc:postgresql://lallah.db.elephantsql.com:5432/hufnadpz" -locations=filesystem:databases/tracker migrate -user=hufnadpz -password=KYsmG7Sa79v--JhmQGuQICXCcmvaghpY
+
+psql -h lallah.db.elephantsql.com -U hufnadpz
