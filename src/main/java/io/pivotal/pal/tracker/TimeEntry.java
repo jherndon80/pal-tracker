@@ -12,7 +12,7 @@ public class TimeEntry {
     private Integer hours;
 
     //new TimeEntry(created.getId(), 321L, 654L, LocalDate.parse("2017-01-09"), 5)
-    public TimeEntry(Long id, Long projectId, Long userId, LocalDate date, int hours){
+    public TimeEntry(Long id, Long projectId, Long userId, LocalDate date, Integer hours){
         this.id = id;
         this.projectId = projectId;
         this.userId = userId;
@@ -20,13 +20,27 @@ public class TimeEntry {
         this.hours = hours;
     }
     //new TimeEntry(projectId, userId, LocalDate.parse("2017-01-08"), 8)
-    public TimeEntry(Long projectId, Long userId, LocalDate date, int hours){
+    public TimeEntry(Long projectId, Long userId, LocalDate date, Integer hours){
         this.projectId = projectId;
         this.userId = userId;
         this.date = date;
         this.hours = hours;
     }
-
+    //new TimeEntry(created.getId(), 321L, 654L, LocalDate.parse("2017-01-09"), 5)
+    public TimeEntry(Integer id, Integer projectId, Integer userId, LocalDate date, Integer hours){
+        this.id = Long.valueOf(id);
+        this.projectId = Long.valueOf(projectId);
+        this.userId = Long.valueOf(userId);
+        this.date = date;
+        this.hours = hours;
+    }
+    //new TimeEntry(projectId, userId, LocalDate.parse("2017-01-08"), 8)
+    public TimeEntry(Integer projectId, Integer userId, LocalDate date, Integer hours){
+        this.projectId = Long.valueOf(projectId);
+        this.userId = Long.valueOf(userId);
+        this.date = date;
+        this.hours = hours;
+    }
     public TimeEntry(){
 
     }
