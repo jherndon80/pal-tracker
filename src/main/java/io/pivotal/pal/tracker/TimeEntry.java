@@ -26,7 +26,7 @@ public class TimeEntry {
         this.date = date;
         this.hours = hours;
     }
-    
+
     //new TimeEntry(created.getId(), 321L, 654L, LocalDate.parse("2017-01-09"), 5)
     public TimeEntry(Integer id, Integer projectId, Integer userId, LocalDate date, Integer hours){
         this.id = Long.valueOf(id);

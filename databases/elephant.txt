@@ -18,3 +18,5 @@ postgres://hufnadpz:KYsmG7Sa79v--JhmQGuQICXCcmvaghpY@lallah.db.elephantsql.com:5
 flyway -url="jdbc:postgresql://lallah.db.elephantsql.com:5432/hufnadpz" -locations=filesystem:databases/tracker migrate -user=hufnadpz -password=KYsmG7Sa79v--JhmQGuQICXCcmvaghpY
 
 psql -h lallah.db.elephantsql.com -U hufnadpz
+
+kubectl create secret generic db-credentials --from-literal=SPRING_DATASOURCE_URL='jdbc:postgresql://lallah.db.elephantsql.com:5432/hufnadpz?user=hufnadpz&password=KYsmG7Sa79v--JhmQGuQICXCcmvaghpY'
